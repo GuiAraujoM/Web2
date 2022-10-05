@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <%- include('./includes/head.ejs')%>
+        <script>
+            const json = '<%- JSON.stringify(post) %>';
+            let post = JSON.parse(json);
+            setTimeout(function(){
+                document.getElementById('description').defaultValue = post.description;
+                document.getElementById('title').defaultValue = post.title;
+                document.getElementById('author').defaultValue = post.author;
+                document.getElementById('images').defaultValue = post.images;
+                document.getElementById('id').defaultValue = post.id;
+            }, 0)
+        </script>
+    </head>
+    <body class="d-flex flex-column min-vh-100" style="background-image: url('https://img.freepik.com/vetores-premium/pata-imprimir-gato-cachorro-rastreamento-de-animais-de-estimacao-filhote_177006-39.jpg?w=1380')">
+        <%- include('./includes/nav')%>
+        <%- include('./includes/posts/header')%>
+        <div class="container py-4">
+            <div class="pb-3 mb-4 border-bottom">
+                <a href="/posts" class="d-flex align-items-center text-dark text-decoration-none">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 486.975 486.975" width="30" height="40"
+                        style="enable-background:new 0 0 486.975 486.975;" xml:space="preserve">
+                        <g>
+                            <path d="M473.475,230.025h-427.4l116-116c5.3-5.3,5.3-13.8,0-19.1c-5.3-5.3-13.8-5.3-19.1,0l-139,139c-5.3,5.3-5.3,13.8,0,19.1
+                                                            		l139,139c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1l-116-116h427.5c7.5,0,13.5-6,13.5-13.5
+                                                            		S480.975,230.025,473.475,230.025z" />
+                        </g>
+                    </svg>
+                    <span class="fs-3 mx-3">Voltar</span>
+                </a>
+            </div>
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <form action="/posts/<%=post.id%>" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Título</label>
+                        <input type="text" class="form-control" name="title" id="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Autor</label>
+                        <input type="text" class="form-control" name="author" id="author" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="images" class="form-label">Imagens</label>
+                        <input type="text" class="form-control" name="images" id="images">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descrição</label>
+                        <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+        <%- include('./includes/footer')%>
+    </body>    
+</html>

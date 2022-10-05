@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <%- include('./includes/head.ejs')%>
+        <title>Início</title>
+    </head>
+    <body class="d-flex flex-column min-vh-100" style="background-image: url('https://img.freepik.com/vetores-premium/pata-imprimir-gato-cachorro-rastreamento-de-animais-de-estimacao-filhote_177006-39.jpg?w=1380')">
+        <%- include('./includes/nav')%>
+        <%- include('./includes/home/header')%>      
+        <% for (let i = 0; i < posts.length; i++) { %>
+            <%- include('./includes/home/show', { post: posts[i] })%>
+        <% } %>
+        <%- include('./includes/footer')%>
+    </body>
+</html>
