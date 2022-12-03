@@ -1,0 +1,25 @@
+<div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">        
+        <a class="navbar-brand d-flex align-items-center" href="/"><span class="navbar-brand"><i class="bi bi-house"></i> Início</span></a>
+        <a class="navbar-brand d-flex align-items-center" href="/posts"><span class="nav-link"><i class="bi bi-postcard"></i> Posts</span></a>    
+        <a class="navbar-brand d-flex align-items-center" href="#"><span class="nav-link"></span></a>
+        <form action="/posts/search/" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" name="search" placeholder="Busque um post">
+            <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+        <a class="navbar-brand d-flex align-items-center" href="#"><span class="nav-link"></span></a>
+        <%if(typeof nick !=='undefined' ){%>
+            <a class="navbar-brand d-flex align-items-center" href="/users/<%= nick %>"><span class="nav-link"><i class="bi bi-person-circle">
+                </i><%= nick %>
+            </span></a>
+            <a class="navbar-brand d-flex align-items-center text-danger" href="/logout"><span class="nav-link"><i class="bi bi-box-arrow-in-right">                
+                </i>Sair
+            </span></a>
+        <%}else{%>
+            <a class="navbar-brand d-flex align-items-center" href="/login"><span class="nav-link"><i class="bi bi-person-circle">
+                </i>Login
+            </span></a>
+        <%}%>
+                          
+    </div> 
+</div>

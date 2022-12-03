@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <%- include('./includes/head.ejs')%>
+    <title>Cadastro</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100"
+    style="background-image: url('https://img.freepik.com/vetores-premium/pata-imprimir-gato-cachorro-rastreamento-de-animais-de-estimacao-filhote_177006-39.jpg?w=1380')">
+    <%- include('./includes/nav')%>
+    <%- include('./includes/header')%>
+    <div class="container">
+        <div class="row p-4 d-flex justify-content-center pb-4">
+            <div class="col-6 bg-light">
+                <!-- Pills navs -->
+                <ul class="nav nav-justified mb-3" id="ex1" role="tablist">
+                    <li class="nav-item p-3" role="presentation">
+                        <a class="btn btn-primary w-100" href="/login" role="button">Entrar</a>
+                    </li>
+                    <li class="nav-item p-3" role="presentation">
+                        <a class="btn btn-secondary w-100" href="/register" role="button">Criar nova conta</a>
+                    </li>
+                </ul>
+                <!-- Pills navs -->
+                <h3 class="text-center">Entrar</h3>
+                <!-- Pills content -->
+                <%if(typeof success != 'undefined' && !success){%>
+                    <span class="error" id="error" style="color: red">Usuário ou senha incorretos</span>
+                <%}%>
+                <div class="container">
+                    <form action="/login/" method="post">
+                        <!-- Username input -->
+                        <div class="form-outline mb-2">
+                            <input type="text" name="username" id="username" class="form-control" required/>
+                            <label class="form-label" for="username">Username</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-2">
+                            <input type="password" name="password" id="password" class="form-control" required/>
+                            <label class="form-label" for="password">Senha</label>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-3">Entrar</button>
+                    </form>
+                </div>
+                <!-- Pills content -->
+            </div>
+        </div>
+    </div>
+    <%- include('./includes/footer')%>
+</body>
+
+</html>
