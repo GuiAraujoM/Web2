@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <%- include('./includes/head.ejs')%>
+        <title>Posts</title>
+    </head>
+    <body class="d-flex flex-column min-vh-100" style="background-image: url('https://img.freepik.com/vetores-premium/pata-imprimir-gato-cachorro-rastreamento-de-animais-de-estimacao-filhote_177006-39.jpg?w=1380')">
+        <%- include('./includes/nav')%>
+        <%- include('./includes/posts/header')%>
+        <div class="container d-flex justify-content-center mt-auto">
+            <a href="/posts/add-post" class="btn btn-secondary mt-2" role="button">Publicar</a>
+        </div>
+        <% data.posts.forEach(post => { %>
+            <%- include('./includes/posts/show', { post: post })%>
+        <% }) %>
+        </div>
+        <nav class="mt-auto">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="/posts/page/<%= data.currentPage*1+1 || 1%>">
+                        <span>&laquo;</span>
+                    </a>
+                </li>    
+                <% for( let i = 1; i <= data.pages; i++ ) { %>
+                    <%- `<li class="page-item"><a class="page-link" href="/posts/page/${i}">${i}</a></li>` %>
+                <% } %>
+                <li class="page-item">
+                    <a class="page-link" href="/posts/page/<%= data.currentPage*1+1 || 1 %>">
+                        <span>&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <%- include('./includes/footer')%>
+    </body>    
+</html>

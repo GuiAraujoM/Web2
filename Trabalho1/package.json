@@ -1,0 +1,25 @@
+{
+  "name": "trabalho1-web2",
+  "version": "0.0.1",
+  "description": "Primeiro trabalho de web2",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "trabalho1-web"
+  },
+  "author": "Guilherme Araujo",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "sqlite3": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
