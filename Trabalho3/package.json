@@ -1,0 +1,18 @@
+{
+  "name": "trabalho3",
+  "version": "1.0.0",
+  "description": "trabalho 3 web2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "guilherme araujo",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "sequelize": "^6.26.0",
+    "sqlite3": "^5.1.2"
+  }
+}
