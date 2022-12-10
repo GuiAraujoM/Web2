@@ -1,0 +1,28 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <% if(comment.hidden == 'false' || !comment.hidden || post.User.username == nick){%>
+        <p><%=comment.content%></p>
+        <%}%>
+        <% if(comment.hidden == 'true' && post.User.username !== nick){%> 
+        <p>Comentário oculto</p>
+        <%}%>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="avatar"
+                    width="25" height="25" />
+                <p class="small mb-0 ms-2"><%=comment.User.username%></p>
+                <%if(typeof nick != 'undefined' && post.User.username == nick){ %> 
+                <a href="/comments/hide/<%=comment.id%>" class="px-1">
+                    <%if(comment.hidden == 'false' || !comment.hidden){%>
+                        <i class="bi bi-eye-slash-fill"></i>
+                    <%}%>
+                    <%if(comment.hidden=='true'){%>
+                        <i class="bi bi-eye-fill"></i>
+                    <%}%>
+                    </a>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>                
+            

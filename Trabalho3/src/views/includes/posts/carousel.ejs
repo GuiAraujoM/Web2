@@ -1,0 +1,24 @@
+<div class="bg-light rounded-3 py-1 mb-2">    
+    <div id="carousel" class="carousel carousel-dark slide py-3" data-bs-ride="carousel" style="max-height: 600px; min-height: 600px">
+        <div class="carousel-inner text-center" style="max-height: 600px">
+            <div class="carousel-item active">
+                <img src=<%-`"${post.thumb}"`%> class="img-fluid w-99">
+            </div>
+            <% if(post.images){ %>
+                <% post.images.split(";").forEach(img => { %>
+                    <%-'<div class="carousel-item">' %>
+                        <%-`<img src="${img}" heigth="50" class="img-fluid w-99">`%>
+                    <%-'</div>'%>                    
+                <% }) %>
+            <%}%>                 
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>    
+</div>

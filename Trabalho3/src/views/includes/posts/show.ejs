@@ -1,0 +1,68 @@
+<script>
+  function like(event){
+    let elem = event.currentTarget;
+    let likesCount = document.getElementById(`likes-${elem.dataset.post}`);
+    fetch(`/posts/like/${elem.dataset.post}`, {method: 'POST'}).then(response => {
+      return response.json();
+    }).then(data => {
+      if(data.success){
+        if(data.active) {
+          elem.classList.add('active');
+          likesCount.innerText = parseInt(likesCount.innerText) + 1;
+        }   
+        if(!data.active) {
+          elem.classList.remove('active'); 
+          likesCount.innerText = parseInt(likesCount.innerText) - 1;
+        };
+      }
+    });
+  }
+</script>
+<div class="row justify-content-center mt-2 p-0">
+    <div class="col-sm-8 m-0 p-0">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= post.thumb %>" width="420px" style="max-height: 270px" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8" style="position:relative">
+            <%if(post.nick && (post.nick === post.User.username)){%>
+              <%//console.log(post.nick + ' eh igual a: ' + post.User.username)%>
+              <%- include ('actions', {post:post})%>
+            <%}%>
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text p-8"><%= post.description %><small class="text-muted"> <br>Publicado por <%= `${post.User.username}, ${post.created_at}`%></small></p>
+            </div>            
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-md-2">
+            <%let found = post.PostLikes.find(like => like.user == post.userid)%>            
+            <div class="card-footer text-muted text-center p-2">
+                <%if(found){%>
+                <button type="button" <%-`data-userid="${post.userid}"`%> <%-`data-post="${post.id}"`%> onclick="like(event)" class="btn btn-outline-secondary active">
+                <%}else{%>
+                <button type="button" <%-`data-userid="${post.userid}"`%> <%-`data-post="${post.id}"`%> onclick="like(event)" class="btn btn-outline-secondary">
+                <%}%>
+                  <span id="<%-`likes-${post.id}`%>"><%= `${post.PostLikes.length}`%></span> <i class="bi bi-heart-fill text-danger"></i>
+                </button>
+            </div>           
+          </div>
+          <div class="col-md-2">            
+            <div class="card-footer text-muted text-center p-2">
+              <button type="button" class="btn btn-outline-secondary">
+                <%= `${post.Comments.length}`%> <i class="bi bi-chat text-primary"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-8 text-center">
+            <div class="card-footer text-muted" style="height: 100%;">
+              <a class="text-decoration-none text-primary p-2 m-2" href="/posts/<%=post.id%>">Continuar lendo...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

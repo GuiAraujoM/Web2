@@ -1,0 +1,23 @@
+{
+  "name": "trabalho3",
+  "version": "1.0.0",
+  "description": "trabalho 3 web2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "author": "guilherme araujo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.26.0",
+    "sqlite3": "^5.1.2"
+  }
+}

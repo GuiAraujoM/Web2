@@ -1,0 +1,25 @@
+<div class="row justify-content-center mt-2 p-0">
+    <div class="col-sm-8 m-0 p-0">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= post.thumb %>" width="420px" style="max-height: 270px" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text p-8"><%= post.description %><small class="text-muted"> <br>Publicado por <%= `${post.User.username}, ${post.created_at}`%></small></p>
+            </div>            
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-md-12 text-center">
+            <div class="card-footer text-muted">
+              <a class="text-decoration-none text-primary p-2 m-2" href="/posts/<%=post.id%>">Continuar lendo...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
