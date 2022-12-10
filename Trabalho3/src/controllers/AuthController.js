@@ -34,10 +34,11 @@ class AuthController {
         {
           email: email,
           password: password,
+          id: user.id
         },
         process.env.SECRET,
         {
-          expiresIn: "300s"
+          expiresIn: "900s"
         }
       );
 

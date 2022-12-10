@@ -9,4 +9,8 @@ router.post("/", isAuth, (req, res) => {
     categoryController.create(req, res);
 });
 
+router.post("/share/:id", isAuth, (req, res) => {
+  categoryController.shareCategory(req, res);
+});
+
 module.exports = router;

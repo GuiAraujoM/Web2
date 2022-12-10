@@ -5,6 +5,10 @@ const TaskController = require("../controllers/TaskController");
 const isAuth = require("../middlewares/isAuth");
 const controller = new TaskController();
 
+router.get("/", isAuth, (req, res) => {
+  controller.listAll(req, res);
+});
+
 router.get("/:id", isAuth, (req, res) => {
   controller.conclude(req, res);
 });

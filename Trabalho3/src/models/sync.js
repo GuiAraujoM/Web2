@@ -3,7 +3,6 @@ const { Task } = require("./Task");
 const { Category } = require("./Category");
 const { CategoryUser } = require("./CategoryUser");
 
-
 User.hasMany(Task, {
   foreignKey: "owner",
 });
@@ -25,23 +24,8 @@ Task.belongsTo(Category, {
   foreignKey: "category"
 });
 
-Category.hasMany(CategoryUser, {
-  foreignKey: "category",
-  onDelete: "CASCADE",
-});
-CategoryUser.belongsTo(Category, {
-  foreignKey: "category",
-  onDelete: "CASCADE",
-}); 
-
-User.hasMany(CategoryUser, {
-  foreignKey: "user",
-  onDelete: "CASCADE",
-});
-CategoryUser.belongsTo(User, {
-  foreignKey: "user",
-  onDelete: "CASCADE",
-});
+User.belongsToMany(Category, { through: CategoryUser });
+Category.belongsToMany(User, { through: CategoryUser });
 
 const sequelize = require("../database/sequelize-connection");
 
